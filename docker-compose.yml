@@ -8,4 +8,13 @@ services:
     volumes:
       - ./budget-backend:/src/api/
     ports:
-      - "3000:3000"
+      - 3000:3000
+
+  budget_frontend:
+    build: ./budget-frontend
+    command: ng serve --host="0.0.0.0" --configuration=docker
+    container_name: budget_frontend
+    volumes:
+      - ./budget-frontend:/src/app/
+    ports:
+      - 4200:4200
