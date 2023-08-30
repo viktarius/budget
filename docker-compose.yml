@@ -2,19 +2,21 @@ version: '3'
 
 services:
   budget_backend:
-    build: ./budget-backend
-    command: npm run start:dev
+    image: node:16-alpine
+    working_dir: /src/api/
     container_name: budget_backend
+    command: "tail -f /dev/null"
     volumes:
       - ./budget-backend:/src/api/
     ports:
-      - 3000:3000
+      - "3000:3000"
 
   budget_frontend:
-    build: ./budget-frontend
-    command: ng serve --host 0.0.0.0 --configuration=docker --poll 1000
+    image: node:16-alpine
+    working_dir: /src/app/
     container_name: budget_frontend
+    command: "tail -f /dev/null"
     volumes:
       - ./budget-frontend:/src/app/
     ports:
-      - 4200:4200
+      - "4200:4200"
