@@ -12,7 +12,7 @@ services:
 
   budget_frontend:
     build: ./budget-frontend
-    command: ng serve --host="0.0.0.0" --configuration=docker
+    command: ng serve --host 0.0.0.0 --configuration=docker --poll 1000
     container_name: budget_frontend
     volumes:
       - ./budget-frontend:/src/app/
